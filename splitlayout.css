@@ -1,0 +1,52 @@
+.split{
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.split-item{
+    display: table-cell;
+}
+.split-left{
+    background: #000;
+    color: #fff;
+    position: relative;
+    width: 83%;
+    height: 100%;
+}
+.split-right{
+  width: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.split-left__inner{
+    height: 100%;
+    position: fixed;
+    width: 83%;
+}
+.split-right__inner{
+    /* height: 8000px; */
+}
+
+@media screen and (max-width:1024px) {
+    .split{
+        display: block;
+    }
+    .split-item{
+        display: block;
+        width: auto;
+    }
+    .split-left__inner{
+        position: inherit;
+        width: auto;
+    }
+}
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Annotation</title>
+    <link rel="stylesheet" href="splitlayout.css">
+    <link rel="stylesheet" href="annotation.css">
+  </head>
+  <body>
+    <div class="split">
+      <div class="split-item split-left">
+        <div class="split-left__inner">
+          <div id="canvas-div">
+              <canvas id="canvas" width="" height=""></canvas>
+          </div><!--canvas-div-->
+          <div class="operationArea">
+            <%= imgpath %>
+            <button type="button" name="button" onclick="skipImage()">skip</button>
+            <button type="button" name="button" onclick="submitPoints()">submit</button>
+          </div><!--operationArea-->
+        </div><!--split-left__inner-->
+      </div><!--split-item split-left-->
+      <div class="split-item split-right">
+        <div class="split-right__inner">
+          <p>Number of points:<input type="number" id="numOfPoint" value="100" min="1" onchange="createPointList()"></p>
+          <div id="pointList">
+          </div><!--points-->
+        </div><!--split-right__inner-->
+      </div><!--split-item split-right-->
+    </div><!--split-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="annotation.js"></script>
+  </body>
+</html>
