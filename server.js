@@ -104,13 +104,17 @@ var http_server = new http.createServer(function(req, res) {
   } else {
     filePath = req.url;
     var fullPath = __dirname + filePath;
-    var template = fs.readFileSync(fullPath, 'utf-8');
-    var data = ejs.render(template, {
-      imgpath : "UnannotatedImage/" + imgpath
-    });
-    res.writeHead(200, {"Content-Type": mime[path.extname(fullPath)] || "text/plain"});
-    res.write(data);
-    res.end();
+    try {
+      var template = fs.readFileSync(fullPath, 'utf-8');
+      var data = ejs.render(template, {
+        imgpath : "UnannotatedImage/" + imgpath
+      });
+      res.writeHead(200, {"Content-Type": mime[path.extname(fullPath)] || "text/plain"});
+      res.write(data);
+      res.end();
+    } catch (err) {
+      // console.log(err);
+    }
   }
 }).listen(3000);
 console.log('Server running at http://localhost:3000/');
